@@ -656,7 +656,10 @@
   function toggleFaq(el) { el.parentElement.classList.toggle('open'); }
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('visible'); }
+      else { e.target.classList.remove('visible'); }
+    });
   }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
   document.querySelectorAll('[data-animate],[data-stagger],[data-stagger-tl]').forEach(el => observer.observe(el));
