@@ -387,6 +387,49 @@
       .curr-item { grid-template-columns: 36px 1fr; gap: 0 1rem; }
       .curr-circle { width: 36px; height: 36px; font-size: .8rem; }
     }
+
+    /* ── Scroll Animations ── */
+    [data-animate] {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity .65s cubic-bezier(.22,1,.36,1), transform .65s cubic-bezier(.22,1,.36,1);
+    }
+    [data-animate="fade-left"] {
+      transform: translateX(-40px);
+    }
+    [data-animate="fade-right"] {
+      transform: translateX(40px);
+    }
+    [data-animate="scale"] {
+      transform: translateY(20px) scale(.95);
+    }
+    [data-animate].visible {
+      opacity: 1;
+      transform: none;
+    }
+    /* stagger delay for grid children */
+    [data-stagger] > * {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity .55s cubic-bezier(.22,1,.36,1), transform .55s cubic-bezier(.22,1,.36,1);
+    }
+    [data-stagger].visible > *:nth-child(1) { opacity:1; transform:none; transition-delay: .05s; }
+    [data-stagger].visible > *:nth-child(2) { opacity:1; transform:none; transition-delay: .13s; }
+    [data-stagger].visible > *:nth-child(3) { opacity:1; transform:none; transition-delay: .21s; }
+    [data-stagger].visible > *:nth-child(4) { opacity:1; transform:none; transition-delay: .29s; }
+    [data-stagger].visible > *:nth-child(5) { opacity:1; transform:none; transition-delay: .37s; }
+    [data-stagger].visible > *:nth-child(6) { opacity:1; transform:none; transition-delay: .45s; }
+    /* timeline stagger */
+    [data-stagger-timeline] > .curr-item {
+      opacity: 0;
+      transform: translateX(-24px);
+      transition: opacity .6s cubic-bezier(.22,1,.36,1), transform .6s cubic-bezier(.22,1,.36,1);
+    }
+    [data-stagger-timeline].visible > .curr-item:nth-child(1) { opacity:1; transform:none; transition-delay: .0s; }
+    [data-stagger-timeline].visible > .curr-item:nth-child(2) { opacity:1; transform:none; transition-delay: .12s; }
+    [data-stagger-timeline].visible > .curr-item:nth-child(3) { opacity:1; transform:none; transition-delay: .24s; }
+    [data-stagger-timeline].visible > .curr-item:nth-child(4) { opacity:1; transform:none; transition-delay: .36s; }
+    [data-stagger-timeline].visible > .curr-item:nth-child(5) { opacity:1; transform:none; transition-delay: .48s; }
   </style>
 </head>
 <body>
@@ -439,11 +482,11 @@
 
 <!-- Overview -->
 <section class="section overview" id="overview">
-  <div class="section-header center">
+  <div class="section-header center" data-animate>
     <div class="section-label">과정 개요</div>
     <div class="section-title">수강 전 꼭 확인하세요</div>
   </div>
-  <div class="overview-grid">
+  <div class="overview-grid" data-stagger>
     <div class="overview-card">
       <div class="overview-icon">📅</div>
       <div class="overview-label">교육 기간</div>
@@ -479,12 +522,12 @@
 
 <!-- Curriculum -->
 <section class="section curriculum" id="curriculum">
-  <div class="section-header">
+  <div class="section-header" data-animate>
     <div class="section-label">NCS 능력단위 커리큘럼</div>
     <div class="section-title">단계별 학습 로드맵</div>
     <div class="section-desc">5개 NCS 능력단위 기반, 이론과 실습을 병행하는 실무 중심 교육</div>
   </div>
-  <div class="curriculum-inner">
+  <div class="curriculum-inner" data-stagger-timeline>
 
     <div class="curr-item">
       <div class="curr-line">
@@ -634,12 +677,12 @@
 
 <!-- Target -->
 <section class="section target" id="target">
-  <div class="section-header">
+  <div class="section-header" data-animate>
     <div class="section-label">수강 대상</div>
     <div class="section-title">이런 분께 추천합니다</div>
     <div class="section-desc">비전공자도 충분히 따라올 수 있도록 기초부터 시작합니다</div>
   </div>
-  <div class="target-grid">
+  <div class="target-grid" data-stagger>
     <div class="target-card">
       <div class="target-icon-wrap">🔄</div>
       <div>
@@ -696,12 +739,12 @@
 
 <!-- Jobs -->
 <section class="section jobs" id="jobs">
-  <div class="section-header">
+  <div class="section-header" data-animate>
     <div class="section-label">취업 분야</div>
     <div class="section-title">수료 후 취업 분야</div>
     <div class="section-desc">Java 백엔드 개발자는 국내 채용 수요 1위</div>
   </div>
-  <div class="jobs-grid">
+  <div class="jobs-grid" data-stagger>
     <div class="job-card"><div class="job-emoji">⚙️</div><div class="job-name">백엔드 개발자</div><div class="job-sub">Spring Boot 기반 서버 개발</div></div>
     <div class="job-card"><div class="job-emoji">🖥️</div><div class="job-name">풀스택 개발자</div><div class="job-sub">프론트 + 백엔드 통합</div></div>
     <div class="job-card"><div class="job-emoji">🗄️</div><div class="job-name">SI 개발자</div><div class="job-sub">기업 시스템 구축·유지보수</div></div>
@@ -712,12 +755,12 @@
 
 <!-- Benefits -->
 <section class="section benefits" id="benefits">
-  <div class="section-header center">
+  <div class="section-header center" data-animate>
     <div class="section-label">지원 혜택</div>
     <div class="section-title">수강생 지원 혜택</div>
     <div class="section-desc">교육만 받는 것이 아닌, 취업까지 함께합니다</div>
   </div>
-  <div class="benefits-grid">
+  <div class="benefits-grid" data-stagger>
     <div class="benefit-card">
       <div class="benefit-num">01</div>
       <div>
@@ -765,11 +808,11 @@
 
 <!-- FAQ -->
 <section class="section faq" id="faq">
-  <div class="section-header center">
+  <div class="section-header center" data-animate>
     <div class="section-label">FAQ</div>
     <div class="section-title">자주 묻는 질문</div>
   </div>
-  <div class="faq-inner">
+  <div class="faq-inner" data-animate>
     <div class="faq-item open">
       <div class="faq-q" onclick="toggleFaq(this)">
         프로그래밍을 전혀 모르는데 수강이 가능한가요?
@@ -817,7 +860,7 @@
 
 <!-- CTA -->
 <section class="cta" id="cta">
-  <h2>지금 바로 무료 상담을<br>신청하세요</h2>
+  <h2 data-animate>지금 바로 무료 상담을<br>신청하세요</h2>
   <p>궁금한 점을 1:1로 상담해 드립니다. 내일배움카드 발급 방법도 함께 안내해 드려요.</p>
   <div class="cta-btns">
     <a href="tel:000-0000-0000" class="btn-cta-primary">📞 전화 상담하기</a>
@@ -843,6 +886,20 @@
     const item = el.parentElement;
     item.classList.toggle('open');
   }
+
+  // Scroll animations — IntersectionObserver
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target); // 한 번만 실행
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('[data-animate], [data-stagger], [data-stagger-timeline]').forEach(el => {
+    observer.observe(el);
+  });
 </script>
 
 </body>
