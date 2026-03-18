@@ -205,6 +205,56 @@
     .strength-card h4{font-size:.9rem;font-weight:800;margin-bottom:.4rem;color:var(--s900);}
     .strength-card p{font-size:.82rem;color:var(--s500);line-height:1.7;}
 
+    /* ── 월별 학습 플랜 ── */
+    .plan-sec{background:var(--s900);}
+    .plan-sec .slabel{color:var(--amber);}
+    .plan-sec .slabel::before{background:var(--amber);}
+    .plan-sec .stitle{color:var(--white);}
+    .plan-sec .sdesc{color:rgba(255,255,255,.5);}
+    .plan-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem;}
+    @media(max-width:700px){.plan-grid{grid-template-columns:1fr;}}
+    .plan-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.09);border-radius:var(--r-md);padding:1.8rem 1.5rem;position:relative;}
+    .plan-month{font-size:.72rem;font-weight:800;letter-spacing:.1em;color:var(--amber);margin-bottom:.5rem;}
+    .plan-card h4{font-size:1rem;font-weight:900;color:var(--white);margin-bottom:.8rem;}
+    .plan-card ul{list-style:none;display:flex;flex-direction:column;gap:.4rem;}
+    .plan-card ul li{font-size:.83rem;color:rgba(255,255,255,.6);padding-left:1rem;position:relative;}
+    .plan-card ul li::before{content:'→';position:absolute;left:0;color:var(--amber);font-size:.75rem;}
+    .plan-badge{display:inline-block;margin-top:1rem;background:rgba(245,158,11,.15);color:var(--amber);font-size:.72rem;font-weight:700;padding:.25rem .7rem;border-radius:50px;border:1px solid rgba(245,158,11,.3);}
+
+    /* ── 걱정 해소 ── */
+    .worry-sec{background:var(--white);}
+    .worry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem;}
+    .worry-card{border:1.5px solid var(--s200);border-radius:var(--r-md);padding:1.5rem;background:var(--s50);transition:border-color .2s,box-shadow .2s;}
+    .worry-card:hover{border-color:var(--blue);box-shadow:var(--shadow-sm);}
+    .worry-q{font-size:.88rem;font-weight:800;color:var(--s900);margin-bottom:.6rem;display:flex;align-items:flex-start;gap:.5rem;}
+    .worry-q::before{content:'Q.';color:var(--blue);font-size:.88rem;font-weight:900;flex-shrink:0;}
+    .worry-a{font-size:.82rem;color:var(--s500);line-height:1.8;padding-left:1.3rem;}
+
+    /* ── 수강생 후기 ── */
+    .review-sec{background:var(--s50);}
+    .review-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.2rem;}
+    .review-card{background:var(--white);border:1px solid var(--s200);border-radius:var(--r-md);padding:1.6rem;display:flex;flex-direction:column;gap:.9rem;transition:box-shadow .2s;}
+    .review-card:hover{box-shadow:var(--shadow-md);}
+    .review-stars{color:#f59e0b;font-size:1rem;letter-spacing:.1rem;}
+    .review-text{font-size:.84rem;color:var(--s700);line-height:1.85;flex:1;}
+    .review-meta{display:flex;align-items:center;gap:.7rem;padding-top:.8rem;border-top:1px solid var(--s100);}
+    .review-avatar{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--blue),#818cf8);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:.85rem;flex-shrink:0;}
+    .review-name{font-size:.82rem;font-weight:700;color:var(--s900);}
+    .review-date{font-size:.73rem;color:var(--s400);}
+    .review-source{font-size:.7rem;color:var(--s400);margin-left:auto;display:flex;align-items:center;gap:.3rem;}
+
+    /* ── 위치 안내 ── */
+    .location-sec{background:var(--white);}
+    .location-inner{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+    @media(max-width:860px){.location-inner{grid-template-columns:1fr;}}
+    .map-wrap{border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--shadow-lg);}
+    .map-wrap iframe{width:100%;height:320px;border:0;display:block;}
+    .location-info{display:flex;flex-direction:column;gap:1rem;}
+    .loc-row{display:flex;gap:.9rem;align-items:flex-start;padding:1rem 1.1rem;background:var(--s50);border:1px solid var(--s200);border-radius:var(--r-sm);}
+    .loc-ico{font-size:1.3rem;flex-shrink:0;margin-top:.05rem;}
+    .loc-row h5{font-size:.78rem;font-weight:700;color:var(--s500);margin-bottom:.2rem;}
+    .loc-row p{font-size:.86rem;color:var(--s900);line-height:1.6;}
+
     /* ── 플로팅 퀵 버튼 ── */
     .float-wrap{position:fixed;right:1.2rem;bottom:2rem;z-index:300;display:flex;flex-direction:column;gap:.55rem;align-items:center;}
     .float-btn{width:52px;height:52px;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-decoration:none;border:none;cursor:pointer;font-family:inherit;transition:transform .15s,box-shadow .15s;box-shadow:0 4px 14px rgba(0,0,0,.18);}
@@ -268,11 +318,12 @@
 <nav class="navbar" id="navbar">
   <a href="#top" class="nav-logo"><div class="dot"></div>Java 웹개발자 과정</a>
   <ul class="nav-menu">
-    <li><a href="#benefits">과정 혜택</a></li>
     <li><a href="#subsidy">국비지원</a></li>
     <li><a href="#curriculum">커리큘럼</a></li>
-    <li><a href="#strength">과정 강점</a></li>
-    <li><a href="#jobs">취업 분야</a></li>
+    <li><a href="#worry">Q&amp;A</a></li>
+    <li><a href="#reviews">후기</a></li>
+    <li><a href="#jobs">취업</a></li>
+    <li><a href="#location">오시는 길</a></li>
     <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="#cta" class="nav-btn">무료 상담 →</a>
@@ -459,6 +510,53 @@
   </div>
 </section>
 
+<!-- 월별 학습 플랜 -->
+<section class="sec plan-sec" id="plan">
+  <div class="sh" data-animate>
+    <div class="slabel">3개월 학습 로드맵</div>
+    <div class="stitle">월별로 무엇을 배우나요?</div>
+    <div class="sdesc">70일 · 280시간 — 단계별로 실력이 쌓이는 구조</div>
+  </div>
+  <div class="plan-grid" data-stagger>
+    <div class="plan-card">
+      <div class="plan-month">1개월차 · 1~23일</div>
+      <h4>기초 다지기</h4>
+      <ul>
+        <li>Java 기초 문법 · 변수 · 조건문</li>
+        <li>객체지향(OOP) · 클래스 · 상속</li>
+        <li>컬렉션 · 예외처리 · 입출력</li>
+        <li>UI/UX 원칙 · 화면 설계</li>
+        <li>와이어프레임 · Figma 기초</li>
+      </ul>
+      <span class="plan-badge">⭐ 알고리즘 기초 포함</span>
+    </div>
+    <div class="plan-card">
+      <div class="plan-month">2개월차 · 24~46일</div>
+      <h4>화면 구현 + 서버 개발</h4>
+      <ul>
+        <li>HTML5 · CSS3 · 반응형 웹</li>
+        <li>JavaScript ES6+ · jQuery</li>
+        <li>Ajax · JSP · EL · JSTL</li>
+        <li>Spring Framework · MVC 패턴</li>
+        <li>MyBatis · REST API 설계</li>
+      </ul>
+      <span class="plan-badge">⭐ Spring Boot 입문</span>
+    </div>
+    <div class="plan-card">
+      <div class="plan-month">3개월차 · 47~70일</div>
+      <h4>DB + 통합 + 프로젝트</h4>
+      <ul>
+        <li>MySQL · SQL 쿼리 실무</li>
+        <li>모듈 연계 · API 통합 구현</li>
+        <li>Git · GitHub 팀 협업</li>
+        <li>쇼핑몰 팀 프로젝트 구현</li>
+        <li>최종 발표 · 포트폴리오 완성</li>
+      </ul>
+      <span class="plan-badge">⭐ 포트폴리오 완성</span>
+    </div>
+  </div>
+</section>
+
 <!-- 수강 대상 -->
 <section class="sec target-sec" id="target">
   <div class="sh" data-animate>
@@ -476,6 +574,40 @@
     <div class="prereq-group req"><h5>✅ 필수</h5><ul><li>컴퓨터 기본 조작 가능</li><li>학습 의지와 성실함</li></ul></div>
     <div class="prereq-group nice"><h5>⭐ 있으면 유리</h5><ul><li>프로그래밍 경험 (언어 무관)</li><li>HTML·CSS 기초 이해</li></ul></div>
     <div class="prereq-group no"><h5>🙆 불필요</h5><ul><li>전공 지식</li><li>Java 사전 경험</li></ul></div>
+  </div>
+</section>
+
+<!-- 걱정 해소 -->
+<section class="sec worry-sec" id="worry">
+  <div class="sh center" data-animate>
+    <div class="slabel">이런 걱정, 하고 계신가요?</div>
+    <div class="stitle">먼저 다녀간 분들도 똑같이 걱정했습니다</div>
+  </div>
+  <div class="worry-grid" data-stagger>
+    <div class="worry-card">
+      <div class="worry-q">비전공자인데 너무 어렵지 않을까요?</div>
+      <div class="worry-a">과정은 Java 한 줄도 모르는 분을 기준으로 시작합니다. 수강생의 절반 이상이 비전공자이며, 강사가 개인 진도를 확인하며 따라올 수 있도록 도와드립니다.</div>
+    </div>
+    <div class="worry-card">
+      <div class="worry-q">나이가 있는데 따라갈 수 있을까요?</div>
+      <div class="worry-a">20대부터 40대까지 다양한 연령대가 함께 수료하고 있습니다. 의지와 성실함이 나이보다 훨씬 중요합니다. 1:1 담당자가 처음부터 끝까지 함께합니다.</div>
+    </div>
+    <div class="worry-card">
+      <div class="worry-q">수료 후 정말 취업이 될까요?</div>
+      <div class="worry-a">커리큘럼이 실무 중심으로 설계되어 있고, 팀 프로젝트로 포트폴리오를 완성합니다. 이력서 첨삭·모의 면접·협력 기업 연계까지 취업 전 과정을 지원합니다.</div>
+    </div>
+    <div class="worry-card">
+      <div class="worry-q">국비지원 자격이 되는지 모르겠어요</div>
+      <div class="worry-a">실업자(미취업자)라면 내일배움카드 발급이 가능합니다. 재직자도 일정 요건 충족 시 가능합니다. 자격 여부는 전화 한 통으로 바로 확인해드립니다.</div>
+    </div>
+    <div class="worry-card">
+      <div class="worry-q">집에서 복습이 안 되면 어쩌죠?</div>
+      <div class="worry-a">수업 내용을 다시 볼 수 있는 온라인 학습 자료를 제공하고, 자습실도 개방되어 있습니다. 쉬는 시간에도 1:1로 질문하면 바로 답변해 드립니다.</div>
+    </div>
+    <div class="worry-card">
+      <div class="worry-q">중간에 못 따라가면 어떻게 되나요?</div>
+      <div class="worry-a">보충수업과 자료 지원이 준비되어 있습니다. 포기하지 않도록 담당자가 학습 상태를 지속적으로 확인하고 개인 맞춤 지원을 제공합니다.</div>
+    </div>
   </div>
 </section>
 
@@ -516,6 +648,53 @@
       <div class="strength-icon">🎓</div>
       <h4>국비지원 100% 안내</h4>
       <p>내일배움카드 발급부터 수강 신청까지 전 과정을 담당자가 1:1로 안내합니다. 자부담 없이 수강 가능합니다.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 수강생 후기 -->
+<section class="sec review-sec" id="reviews">
+  <div class="sh center" data-animate>
+    <div class="slabel">수강생 후기</div>
+    <div class="stitle">직접 다녀간 분들의 이야기</div>
+    <div class="sdesc">Google 리뷰 · SBS아카데미컴퓨터아트학원 천안</div>
+  </div>
+  <div class="review-grid" data-stagger>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">학원 내에서 시험을 보니 부담감은 없었는데 손이 떨렸어요. 집에서 연습할 땐 매번 시간 초과였는데, 강사님이 가르쳐 주신 순서대로 차근차근 했더니 두 과목 모두 시간이 남아서 놀랐어요. 지적해 주신 부분들을 되새기며 확인까지 할 수 있었습니다. 덕분에 정말 기분 좋게 시험장을 나올 수 있었어요. 감사합니다!</p>
+      <div class="review-meta">
+        <div class="review-avatar">이</div>
+        <div><div class="review-name">이*연 수강생</div><div class="review-date">2025.11</div></div>
+        <div class="review-source">Google 리뷰</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">사촌 동생 덕분에 알게 되어 시작한 SBS아카데미. 처음엔 흉내만 내던 문서작업이었는데 강사님의 세세한 지도로 이해가 점점 늘어 매일이 재밌어요. 모르는 부분은 쉬는 시간에도 1:1로 가르쳐 주시니 생각보다 부담스럽지 않아요. 오프라인 강의와 같은 내용을 복습 영상으로도 다시 볼 수 있어서 감사합니다.</p>
+      <div class="review-meta">
+        <div class="review-avatar">박</div>
+        <div><div class="review-name">박*현 수강생</div><div class="review-date">2025.10</div></div>
+        <div class="review-source">Google 리뷰</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">진짜 다니기 잘했다고 느껴질 정도로 너무 좋아요! 수업도 이해 잘 되게 설명해 주시고, 모르는 부분 물어보면 친절하게 바로 알려주셔서 편하게 질문할 수 있어요. 분위기도 부담 없고 갈수록 실력이 느는 게 체감돼요. 처음엔 걱정했는데 지금은 오히려 가는 날이 기다려질 정도예요!</p>
+      <div class="review-meta">
+        <div class="review-avatar">김</div>
+        <div><div class="review-name">김*은 수강생</div><div class="review-date">2025.09</div></div>
+        <div class="review-source">Google 리뷰</div>
+      </div>
+    </div>
+    <div class="review-card">
+      <div class="review-stars">★★★★★</div>
+      <p class="review-text">강사님들이 모두 친절하시고 열정적으로 수업을 이끌어 주셔서 정말 만족스럽습니다. 자격증 준비에 필요한 기초를 차근차근 배우기에 특히 좋은 곳이에요. 궁금한 점을 물어보면 자세히 설명해 주시고, 학원 분위기도 조용해서 자습하기에도 좋아요. 처음 오시는 분도 부담 없이 다닐 수 있는 곳입니다.</p>
+      <div class="review-meta">
+        <div class="review-avatar">최</div>
+        <div><div class="review-name">최*준 수강생</div><div class="review-date">2025.08</div></div>
+        <div class="review-source">Google 리뷰</div>
+      </div>
     </div>
   </div>
 </section>
@@ -598,6 +777,30 @@
     <div class="faq-item">
       <div class="faq-q" onclick="toggleFaq(this)">중도 포기 시 어떻게 되나요?<div class="faq-icon">+</div></div>
       <div class="faq-a">출석률 80% 미만 시 수료 처리가 되지 않으며, 국비지원금 일부를 반환해야 할 수 있습니다. 개인 사정이 생긴 경우 담당자와 미리 상담해 주시면 최대한 지원해 드립니다.</div>
+    </div>
+  </div>
+</section>
+
+<!-- 위치 안내 -->
+<section class="sec location-sec" id="location">
+  <div class="sh" data-animate>
+    <div class="slabel">오시는 길</div>
+    <div class="stitle">SBS아카데미컴퓨터아트학원</div>
+    <div class="sdesc">충청남도 천안시 서북구 불당22대로 92, 708~712호</div>
+  </div>
+  <div class="location-inner">
+    <div data-animate="fade-left">
+      <div class="map-wrap">
+        <iframe src="https://maps.google.com/maps?q=36.8198125,127.1584824&z=16&hl=ko&output=embed" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+    <div data-animate="fade-right">
+      <div class="location-info">
+        <div class="loc-row"><div class="loc-ico">📍</div><div><h5>주소</h5><p>충청남도 천안시 서북구<br>불당22대로 92, 708~712호</p></div></div>
+        <div class="loc-row"><div class="loc-ico">🚌</div><div><h5>대중교통</h5><p>불당동 버스 정류장 하차 후 도보 3분<br>천안아산역에서 버스 이용 가능</p></div></div>
+        <div class="loc-row"><div class="loc-ico">📞</div><div><h5>전화 상담</h5><p>041-900-9042<br>평일 09:00 ~ 18:00</p></div></div>
+        <div class="loc-row"><div class="loc-ico">🅿️</div><div><h5>주차</h5><p>건물 내 주차 가능<br>방문 전 전화 문의 권장</p></div></div>
+      </div>
     </div>
   </div>
 </section>
